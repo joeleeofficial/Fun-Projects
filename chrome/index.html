@@ -1,80 +1,36 @@
 
-<!doctype html>
-<html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>New Tab</title>
-    <style>
-      body {
-        background: #FFFFFF;
-        margin: 0;
-      }
 
-      #oneGoogleBar {
-        height: 56px;
-      }
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Tab</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<div class="head">
+		<ul class="left">
+			<li><a href="https://www.google.com/intl/en/about/">About</a></li>
+			<li><a href="https://store.google.com">Store</a></li>
+		</ul>
+		<ul class=right>
+			<li><a href="https://mail.google.com">Gmail</a></li>
+			<li><a href="https://images.google.com">Images</a></li>
+			<li><a href="https://www.google.com/intl/en/options/"><img src="https://www.shareicon.net/download/2015/09/12/99848_apps.ico" id="apps"></a></li>
+			<li><a href="https://accounts.google.com/ServiceLogin?hl=en-gb" class="btn" id="btn-blue">Sign in</a></li>
+		</ul>
+	</div>	
+	<main>
+	<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" id="logo" />
 
-      #backgroundImage {
-        border: none;
-        height: 100%;
-        pointer-events: none;
-        position: fixed;
-        top: 0;
-        visibility: hidden;
-        width: 100%;
-      }
+	<form>
+		<div class="searchbar">
+			<input type="text" name="search" id="search">
+		</div>
+			<img id="voice" src="https://www.gstatic.com/images/branding/googlemic/2x/googlemic_color_24dp.png" />
 
-      [show-background-image] #backgroundImage {
-        visibility: visible;
-      }
-      input{
-    border: none;
-    padding: 10px;
-    margin: 10px;
-    height: 20px;
-    width: 500px;
-    border:1px solid #eaeaea;
-    outline:none;
-}
-input:hover{
-    border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
-}
-input:focus{
-    border-color:#4d90fe;
-}
+	</form>
 
-input[type="submit"] {
-    border-radius: 2px;
-    background: #f2f2f2;
-    border: 1px solid #f2f2f2;
-    color: #757575;
-    cursor: default;
-    font-size: 14px;
-    font-weight: bold;
-    width: 100px;
-    padding: 0 16px;
-    height:36px;
-}
-input[type="submit"]:hover {
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    background: #f8f8f8;
-    border: 1px solid #c6c6c6;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    color: #222;
-}
-    </style>
-  </head>
-  <body>
-    <div id="oneGoogleBar"></div>
-    <img id="backgroundImage"
-        src="https://lh5.googleusercontent.com/proxy/rQmq8IWEmGSbLPxClswos38zQNukQlJ6hnH7ZTaFmdkVyMbivsLI9LBbCmMG7CDES3NhWJYlqXCAaNSfVoOWrx1N-WF0L6OEpiAkE18ggkU8=w3840-h2160-p-k-no-nd-mv"> 
-    <link rel="stylesheet" href="./md.css">
-    <link rel="stylesheet" href="./vars.css">
-    <div id="oneGoogleBarEndOfBody">
-      <div class="main">
-<input type="text" />
-<input type="submit" value="Go">
-</div>
-    </div>
-  </body>
+	</main>
+	
+</body>
 </html>
