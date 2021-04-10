@@ -1,0 +1,116 @@
+html, body {
+	height:100vh;
+	width:100vw;
+	margin:0;
+	padding:0;
+}
+
+body {
+	display:grid;
+  background:url(https://lh5.googleusercontent.com/proxy/rQmq8IWEmGSbLPxClswos38zQNukQlJ6hnH7ZTaFmdkVyMbivsLI9LBbCmMG7CDES3NhWJYlqXCAaNSfVoOWrx1N-WF0L6OEpiAkE18ggkU8=w3840-h2160-p-k-no-nd-mv)
+  background-image:url(https://lh5.googleusercontent.com/proxy/rQmq8IWEmGSbLPxClswos38zQNukQlJ6hnH7ZTaFmdkVyMbivsLI9LBbCmMG7CDES3NhWJYlqXCAaNSfVoOWrx1N-WF0L6OEpiAkE18ggkU8=w3840-h2160-p-k-no-nd-mv)
+	grid-template-columns: 100%;
+	grid-template-rows: 50px auto 25px;
+	grid-gap: 1px 1px;
+}
+
+ul, li {
+	display: inline-grid;
+	grid-auto-flow: column;
+	align-self: center;
+	list-style-type: none;
+	margin: 0;
+	padding: 8px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.head {
+	z-index: 2;
+	align-self:start;
+}
+
+footer {
+	align-self:end;
+	background-color: #f2f2f2;
+}
+
+main  {
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	transform: translate(0,-20%);
+}
+
+#logo {
+	margin: 20px;
+}
+
+#search {
+	width: 550px !important;
+	height: 40px;
+	box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.23);
+	background-color: #FFFFFF;
+	border-style: none ;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+#voice {
+	float: right;
+	transform: translate(-10px, -37px);
+	height: 24px;
+
+}
+.buttons {
+	display: flex;
+	justify-content: center;
+	margin: 20px;
+}
+.btn {
+	padding: 10px 15px;
+	margin: 10px;
+	background-color:#F1F1F1;
+	border-style: none;
+	border-radius:3px;
+	color: rgba(0,0,0,0.62);
+	font-weight: bold;
+}
+#btn-blue {
+	background-color:#4285f4;
+	color: #FFFFFF;
+}
+#btn-blue:hover {
+	text-decoration: none;
+}
+#btn-blue:active {
+	background-color:#376fcc;
+}
+.btn:hover {
+	box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.23);
+	color: rgba(0,0,0,0.87);
+}
+
+a {
+	color: rgba(0,0,0,0.87);
+	font-family: arial;
+	font-size: 13px;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+#apps {
+	height:24px;
+	opacity:0.60;
+}
+#apps:hover {
+	opacity:0.80;
+}
