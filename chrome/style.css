@@ -7,7 +7,6 @@ html, body {
 
 body {
 	display:grid;
-  background-image:url(https://lh5.googleusercontent.com/proxy/rQmq8IWEmGSbLPxClswos38zQNukQlJ6hnH7ZTaFmdkVyMbivsLI9LBbCmMG7CDES3NhWJYlqXCAaNSfVoOWrx1N-WF0L6OEpiAkE18ggkU8=w3840-h2160-p-k-no-nd-mv);
 	grid-template-columns: 100%;
 	grid-template-rows: 50px auto 25px;
 	grid-gap: 1px 1px;
