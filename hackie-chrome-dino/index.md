@@ -19,4 +19,4 @@ Again, Open The Dev Tools And Get To Console ( if you closed ) and Run `Runner.i
 
 #### Important 
 
-* : Run `const original = Runner.instance_.gameOver` before you run `Runner.instance.gameOver = function(){}`. So with this code you create a variable that saves the original `gameOver()` function. If you want to recover back the game, just run `Runner.instance_.gameOver = original` and everything is back to normal ! ( or you can just close and open the page )
+`* `: Run `const original = Runner.instance_.gameOver` before you run `Runner.instance.gameOver = function(){}`. So with this code you create a variable that saves the original `gameOver()` function. If you want to recover back the game, just run `Runner.instance_.gameOver = original` and everything is back to normal ! ( or you can just close and open the page )
