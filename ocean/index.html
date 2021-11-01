@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <title>Team Seas</title>
+</head>
+<body>
+  <div class="landscape">
+
+    <div class="mountain"></div>
+    <div class="mountain mountain-2"></div>
+    <div class="mountain mountain-3"></div>
+    <div class="sun-container sun-container-1">
+    </div>
+    <div class="sun-container">
+      <div class="sun"></div>
+    </div>
+    <div class="cloud"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="sun-container sun-container-reflection">
+      <div class="sun"></div>
+    </div>
+    <div class="light"></div>
+    <div class="light light-1"></div>
+    <div class="light light-2"></div>
+    <div class="light light-3"></div>
+    <div class="light light-4"></div>
+    <div class="light light-5"></div>
+    <div class="light light-6"></div>
+    <div class="light light-7"></div>
+    <div class="water"></div>
+    <div class="splash"></div>
+    <div class="splash delay-1"></div>
+    <div class="splash delay-2"></div>
+    <div class="splash splash-4 delay-2"></div>
+    <div class="splash splash-4 delay-3"></div>
+    <div class="splash splash-4 delay-4"></div>
+    <div class="splash splash-stone delay-3"></div>
+    <div class="splash splash-stone splash-4"></div>
+    <div class="splash splash-stone splash-5"></div>
+    <div class="lotus lotus-1"></div>
+    <div class="lotus lotus-2"></div>
+    <div class="lotus lotus-3"></div>
+    <!-- TODO: Add trash -->
+    <div class="trash-container"></div>
+    <div class="front">
+      <div class="stone"></div>
+      <div class="grass"></div>
+      <div class="grass grass-1"></div>
+      <div class="grass grass-2"></div>
+      <div class="reed"></div>
+      <div class="reed reed-1"></div>
+    </div>
+  </div>
+  <div class="logo"></div>
+  <h1 class="money"></h1>
+</body>
+</html>
+<style>
+*, *::after, *::before {
+  font-family: "Open Sans", system-ui, -apple-system, sans-serif;
+  user-select: none;
+}
+
+.logo-parent {
+  display: inline-flex;
+  border: 1px solid #00AAFF;
+}
+
+.logo {
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  overflow: hidden;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  z-index: 100;
+}
+
+.logo::before {
+  content: "";
+  background: url(/team-seas-logo.png);
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
+.logo::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-color: hsl(290, 31%, 67%, .9);
+  bottom: 0;
+  left: -50%;
+  border-radius: 35%;
+  animation: waves 5s ease-in-out alternate infinite;
+}
+
+@keyframes waves {
+  from {
+    transform: translateY(0) rotate(0);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(540deg);
+  }
+}
+
+.money {
+  position: absolute;
+  bottom: 50vh;
+  left: 50vmin;
+  font-size: 6vmin;
+  z-index: 100;
+  margin: 0;
+  opacity: .5;
+  color: white;
+  text-shadow: 0 0 5px hsl(0, 0%, 0%, .5);
+}
+
+.trash-container {
+  width: 100%;
+  height: 50vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.trash {
+  position: absolute;
+  overflow: hidden;
+  animation: bob 2s ease-in-out infinite alternate;
+}
+
+.trash svg {
+  opacity: .75;
+}
+
+@keyframes bob {
+  from {
+    transform: rotate(var(--rotation)) translateY(1vh)
+  }
+
+  to {
+    transform: rotate(calc(var(--rotation) + 10deg)) translateY(0)
+  }
+}
+
+body {
+  margin: 0;
+}
+
+/*
+  Below code from Paulina Hetman
+  https://codepen.io/pehaa/pen/yLVeLNg
+*/
+
+:root {
+  --v1: #be91c6;
+  --v2: #8a65cc;
+  --v3: #5e30d9;
+  --transparentv3: #5e30d900;
+  --v4: #3b1895;
+  --s1: #fea798;
+  --s2: #ff846e;
+  --cloud: #fea798;
+}
+.landscape:after,
+.landscape:before,
+.landscape *,
+.landscape *:after,
+.landscape *:before {
+  position: absolute;
+}
+
+.front {
+  /* TODO: Change z-index */
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.landscape {
+  height: 100vh;
+  background-image: linear-gradient(var(--v1), var(--s1), var(--v1));
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.mountain {
+  border-radius: 180% 80% 0% 0%/60vmin 60vmin 0% 0%;
+  width: 40vmin;
+  height: 30vmin;
+  bottom: 50%;
+  left: -10vmin;
+  background: var(--s1);
+  background-image: linear-gradient(var(--v1), var(--v2) 30%, var(--v3));
+  box-shadow: inset -10px 0 10px -10px var(--s1);
+}
+
+.mountain::before {
+  content: "";
+  bottom: 0;
+  width: inherit;
+  height: inherit;
+  background: inherit;
+  border-radius: inherit;
+  transform-origin: bottom center;
+  transform: scaleX(1) scaleY(-0.6);
+  filter: blur(3px);
+}
+
+.mountain-2 {
+  left: 5vmin;
+  height: 15vmin;
+  width: 40vmin;
+  box-shadow: inset -15px 0 10px -14px var(--s1);
+  border-radius: 120% 50% 0% 0%/25vmin 25vmin 0% 0%;
+  background-image: linear-gradient(var(--v3), var(--v4));
+}
+
+.mountain-3 {
+  border-radius: 80% 0% 0 0/100% 100% 0 0;
+  right: -85vmin;
+  width: 100vmin;
+  left: auto;
+  height: 12vmin;
+  color: var(--v3);
+  background-image: linear-gradient(var(--s1), var(--v4));
+  box-shadow: inset 15px 0 10px -10px var(--s1);
+}
+
+.mountain-3:after {
+  content: "";
+  border-radius: 60% 0 0 0/100% 0 0 0;
+  background: inherit;
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  right: 20%;
+}
+
+.lotus {
+  width: 10vmin;
+  height: 5vmin;
+  background: conic-gradient(
+    var(--v3) 0deg 40deg,
+    var(--transparentv3) 50deg 70deg,
+    var(--v3) 80deg
+  );
+  border-radius: 50%;
+}
+
+.lotus-1 {
+  bottom: 10vmin;
+  right: 5vmin;
+  width: 20vmin;
+}
+
+.lotus-2 {
+  bottom: 20vmin;
+  right: 15vmin;
+  height: 3vmin;
+  transform: skew(-10deg);
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.lotus-3 {
+  bottom: 10vmin;
+  right: 35vmin;
+  transform: rotate(180deg) skew(-20deg);
+  opacity: 0.8;
+  width: 15vmin;
+}
+
+.cloud {
+  width: 80vmin;
+  height: 6vmin;
+  background: currentcolor;
+  color: var(--cloud);
+  top: 24vmin;
+  left: 20vmin;
+  border-radius: 50%;
+  box-shadow: 30vmin 0.5vmin 0 -1vmin currentcolor,
+    -25vmin 0 0 -0.6vmin currentcolor;
+  opacity: 0.3;
+  transform: translate3d(-150vmin, 0, 0);
+  animation: clouds 120s infinite;
+  animation-delay: -10s;
+}
+@keyframes clouds {
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(150vmin, 0, 0);
+  }
+}
+.cloud-1 {
+  left: 60vmin;
+  top: 15vmin;
+  opacity: 0.2;
+  filter: blur(1px);
+  animation-delay: 0;
+  animation-duration: 100s;
+}
+
+.water {
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(#fea79855, var(--v2));
+  overflow: hidden;
+  box-shadow: inset 0 1px 4px -3px white;
+}
+
+.stone {
+  bottom: -5vh;
+  left: 0;
+  height: 20vmin;
+  width: 40vmin;
+  background: var(--v4);
+  box-shadow: inset 0 0 20px -5px rgba(0, 0, 0, 0.2);
+  border-radius: 0% 200% 0 0/0% 200%;
+}
+.stone:after {
+  content: "";
+  background: var(--v3);
+  width: 100%;
+  height: 100%;
+  right: -15%;
+  border-radius: inherit;
+  z-index: -1;
+  transform: scaleX(1.3) skew(10deg);
+  box-shadow: inset 0 0 20px -5px rgba(0, 0, 0, 0.4);
+}
+
+.grass {
+  height: 40vmin;
+  width: 10vmin;
+  border-radius: 0 60% 0 0/0 100% 0 0;
+  bottom: 0;
+  border-right: 5px solid var(--v4);
+  box-shadow: 1px 0 0 var(--s1);
+  filter: drop-shadow(-0.5vmin 6vmin 0 var(--s2))
+    drop-shadow(-4.5vmin 10vmin 0 var(--v3));
+}
+
+.grass-1 {
+  left: 14vmin;
+  bottom: -2vmin;
+  transform: scaleX(-1);
+  box-shadow: 2px 0 0 var(--v4);
+  border-color: var(--v3);
+  filter: drop-shadow(-1vmin 5vmin 0 var(--v3))
+    drop-shadow(-80vmin 5vmin 0 var(--v4));
+}
+
+.grass-2 {
+  right: 0;
+  left: auto;
+  height: 20vmin;
+  bottom: -2vmin;
+  transform: scaleX(-1);
+}
+
+.sun {
+  background: white;
+  border-radius: 50%;
+  width: 20vmin;
+  height: 20vmin;
+  left: calc(60% - 10vmin);
+  top: 100%;
+  transform: translate3d(0, 0, 0);
+  animation: rise 20s infinite;
+  box-shadow: 0 0 10px white;
+}
+.reed {
+  height: 40vmin;
+  width: 0.5vmin;
+  bottom: 0;
+  left: 10vmin;
+  color: var(--v4);
+  background: currentColor;
+  transform-origin: bottom center;
+  transform: rotate(4deg);
+  box-shadow: inset -1px 0 0 var(--s2), -6vmin 3vmin 0 0, 80vmin 0 0 0;
+  animation: verticalise 20s infinite;
+}
+.reed-1 {
+  color: var(--s2);
+  left: 15vmin;
+  height: 50vmin;
+  bottom: -5vmin;
+  transform: rotate(-2deg);
+  animation: verticalise-1 20s infinite;
+  box-shadow: inset -1px 0 0 var(--s1), 6vmin 13vmin 0 0 var(--s1),
+    80vmin 10vmin 0 0 var(--v3);
+}
+.reed:after {
+  content: "";
+  width: 1.5vmin;
+  height: 10vmin;
+  background: currentcolor;
+  border-radius: 0.75vmin;
+  top: 0;
+  left: -0.5vmin;
+  box-shadow: inherit;
+}
+@keyframes verticalise {
+  0%,
+  10% {
+    transform: rotate(4deg);
+  }
+  30%,
+  70% {
+    transform: rotate(0);
+  }
+}
+@keyframes verticalise-1 {
+  0%,
+  10% {
+    transform: rotate(-2deg);
+  }
+  45%,
+  70% {
+    transform: rotate(0) translateY(-6vmin);
+  }
+}
+@keyframes rise {
+  100% {
+    transform: translate3d(0, -100vh, 20vmin);
+  }
+}
+@keyframes rise-reflection {
+  30% {
+    opacity: 0;
+    transform: translate3d(0, 5vmin, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 80vmin, 0);
+  }
+}
+.sun-container {
+  overflow: hidden;
+  width: 100%;
+  height: 50%;
+}
+
+.sun-container-1:after {
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 60% 100%, var(--s2), transparent);
+  animation: fade 20s infinite;
+  mix-blend-mode: color-burn;
+}
+
+@keyframes fade {
+  10% {
+    opacity: 1;
+  }
+  30%,
+  70% {
+    opacity: 0;
+  }
+}
+.sun-container-reflection {
+  top: 50%;
+  background: radial-gradient(circle at 60% 0%, var(--s2), transparent);
+}
+.sun-container-reflection .sun {
+  background: linear-gradient(white, rgba(255, 255, 255, 0));
+  box-shadow: none;
+  filter: blur(5px);
+  opacity: 1;
+  top: 0;
+  transform: translate3d(0, -20vmin, 0);
+  animation-name: rise-reflection;
+}
+
+.light {
+  height: 0.5vmin;
+  width: 20vmin;
+  background: white;
+  left: 20%;
+  right: 0;
+  margin: auto;
+  top: calc(50% + 1vmin);
+  animation: light 20s infinite;
+  opacity: 0;
+  transform: scaleX(0.1) translate3d(0%, 0, 0);
+  border-radius: 0.25vh;
+  filter: blur(1px);
+}
+
+@-webkit-keyframes light {
+  5% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  10% {
+    opacity: 0.6;
+    transform: scaleX(1) translate3d(5%, 0, 0);
+  }
+  15% {
+    opacity: 0.6;
+    transform: scaleX(1) translate3d(-5%, 0, 0);
+  }
+  20% {
+    opacity: 0;
+    transform: scaleX(0.1) translate3d(0, 0, 0);
+  }
+}
+@keyframes light {
+  5% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  10% {
+    opacity: 0.6;
+    transform: scaleX(1) translate3d(5%, 0, 0);
+  }
+  15% {
+    opacity: 0.6;
+    transform: scaleX(1) translate3d(-5%, 0, 0);
+  }
+  20% {
+    opacity: 0;
+    transform: scaleX(0.1) translate3d(0, 0, 0);
+  }
+}
+.light-1 {
+  top: calc(50% + 2vmin);
+  animation-delay: 0.5s;
+}
+
+.light-2 {
+  top: calc(50% + 3vmin);
+  width: 18vmin;
+  animation-delay: 1s;
+}
+.light-3 {
+  top: calc(50% + 4vmin);
+  width: 18vmin;
+  animation-delay: 1.5s;
+}
+.light-4 {
+  top: calc(50% + 5vmin);
+  width: 16vmin;
+  animation-delay: 2s;
+}
+.light-5 {
+  top: calc(50% + 8vmin);
+  width: 14vmin;
+  animation-delay: 2.5s;
+}
+.light-6 {
+  top: calc(50% + 9vmin);
+  width: 10vmin;
+  animation-delay: 3s;
+}
+.light-7 {
+  top: calc(50% + 7vmin);
+  width: 12vmin;
+  animation-delay: 3.5s;
+}
+
+.splash {
+  width: 8vmin;
+  height: 3vmin;
+  border: 2px solid var(--s1);
+  box-shadow: 0 0 2px var(--s1);
+  border-radius: 50%;
+  bottom: 5vmin;
+  left: 70%;
+  animation: splash 9s infinite;
+  transform: scale(0);
+}
+
+.splash-stone {
+  bottom: 15vh;
+  left: -3vmin;
+  height: 10vmin;
+  width: 30vmin;
+}
+
+.splash-4 {
+  bottom: 5vmin;
+  left: auto;
+  bottom: 15vmin;
+  right: -2vmin;
+}
+
+@keyframes splash {
+  50%,
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.delay-1 {
+  animation-delay: 1s;
+}
+.delay-2 {
+  animation-delay: 2s;
+}
+.delay-3 {
+  animation-delay: 3s;
+}
+.delay-4 {
+  animation-delay: 4s;
+}
+.delay-5 {
+  animation-delay: 5s;
+}
+.delay-6 {
+  animation-delay: 6s;
+}</style>
+<script>
+const trashContainer = document.querySelector(".trash-container")
+
+const bagSvg = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#000000"><g><rect fill="none" /><path d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M10,10c0,0.55-0.45,1-1,1s-1-0.45-1-1V8h2V10z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M16,10c0,0.55-0.45,1-1,1 s-1-0.45-1-1V8h2V10z"/></g></svg>`
+const bottleSvg = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#000000"><g><rect fill="none"/></g><g><path d="M20.63,8.54l-0.95-0.32C19.28,8.09,19,7.71,19,7.28V3c0-0.55-0.45-1-1-1h-3c-0.55,0-1,0.45-1,1v4.28 c0,0.43-0.28,0.81-0.68,0.95l-0.95,0.32C11.55,8.82,11,9.58,11,10.44V20c0,1.1,0.9,2,2,2h7c1.1,0,2-0.9,2-2v-9.56 C22,9.58,21.45,8.82,20.63,8.54z M16,4h1v1h-1V4z M13,10.44l0.95-0.32C15.18,9.72,16,8.57,16,7.28V7h1v0.28 c0,1.29,0.82,2.44,2.05,2.85L20,10.44V12h-7V10.44z M20,20h-7v-2h7V20z"/></g></g></g></svg>`
+const headphonesSvg = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#000000"><g><rect fill="none" /></g><g><path d="M12,3c-4.97,0-9,4.03-9,9v7c0,1.1,0.9,2,2,2h4v-8H5v-1c0-3.87,3.13-7,7-7s7,3.13,7,7v1h-4v8h4c1.1,0,2-0.9,2-2v-7 C21,7.03,16.97,3,12,3z"/></g></svg>`
+const phoneSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 5h10v14H7z" opacity=".3"/><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>`
+const takeoutBoxSvg = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#000000"><g><rect fill="none" /></g><g><path d="M5.26,11h13.48l-0.67,9H5.93L5.26,11z M9.02,4h5.95L19,7.38l1.59-1.59L22,7.21 L19.21,10H4.79L2,7.21l1.41-1.41L5,7.38L9.02,4z" fill-rule="evenodd"/></g></svg>`
+const toyCarSvg = `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#000000"><g display="none"><rect display="inline" fill="none" y="0"/></g><g><path d="M22,14c0-1.95-1.4-3.57-3.25-3.92L17.4,6.05C17,4.82,15.85,4,14.56,4H9.44C8.15,4,7,4.82,6.6,6.05L5.81,8.4L4.41,7 l0.29-0.29c0.39-0.39,0.39-1.02,0-1.41c-0.39-0.39-1.02-0.39-1.41,0l-2,2c-0.39,0.39-0.39,1.02,0,1.41c0.39,0.39,1.02,0.39,1.41,0 L3,8.41l1.79,1.79C3.18,10.72,2,12.22,2,14c0,1.5,0.83,2.79,2.05,3.48C4.28,18.9,5.51,20,7,20c1.3,0,2.4-0.84,2.82-2h4.37 c0.41,1.16,1.51,2,2.82,2c1.49,0,2.72-1.1,2.95-2.52C21.17,16.79,22,15.5,22,14z M7,18c-0.55,0-1-0.45-1-1s0.45-1,1-1s1,0.45,1,1 S7.55,18,7,18z M11,10H7.41L7.39,9.98l1.1-3.3C8.63,6.27,9.01,6,9.44,6H11V10z M13,6h1.56c0.43,0,0.81,0.27,0.95,0.68L16.61,10H13 V6z M17,18c-0.55,0-1-0.45-1-1s0.45-1,1-1s1,0.45,1,1S17.55,18,17,18z"/></g></svg>`
+
+const amountRaised = 12341342
+moneyElem.innerText = numberFormatter.format(amountRaised)
+
+const amountLeftToRaise = Math.max(MAX_MONEY_RAISED - amountRaised, 0)
+const trashAmounts = {}
+trashAmounts.xxl = {
+  amount: Math.floor(amountLeftToRaise / XXL_TRASH_MONEY),
+  icon: bagSvg,
+}
+trashAmounts.xl = {
+  amount: Math.floor((amountLeftToRaise % XXL_TRASH_MONEY) / XL_TRASH_MONEY),
+  icon: takeoutBoxSvg,
+}
+trashAmounts.md = {
+  amount: Math.floor((amountLeftToRaise % XL_TRASH_MONEY) / LG_TRASH_MONEY),
+  icon: headphonesSvg,
+}
+trashAmounts.md = {
+  amount: Math.floor((amountLeftToRaise % LG_TRASH_MONEY) / MD_TRASH_MONEY),
+  icon: phoneSvg,
+}
+trashAmounts.sm = {
+  amount: Math.floor((amountLeftToRaise % MD_TRASH_MONEY) / SM_TRASH_MONEY),
+  icon: toyCarSvg,
+}
+trashAmounts.xs = {
+  amount: Math.floor((amountLeftToRaise % SM_TRASH_MONEY) / XS_TRASH_MONEY),
+  icon: bottleSvg,
+}
+
+Object.values(trashAmounts).forEach(({ amount, icon, size }) => {
+  for (let i = 0; i < amount; i++) createTrash(icon, size)
+})
+
+function createTrash(icon) {
+  const div = document.createElement("div")
+  const top = randomNumberBetween(0, 50)
+  const size = top / 5 + 1
+  div.classList.add("trash")
+  div.innerHTML = icon
+  div.style.width = `${size}vmin`
+  div.style.height = `${size}vmin`
+  div.style.top = `${top}vh`
+  div.style.left = `${randomNumberBetween(0, 100)}vw`
+  div.style.setProperty("--rotation", `${randomNumberBetween(-30, 30)}deg`)
+  trashContainer.appendChild(div)
+}
+
+function randomNumberBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}</script>
